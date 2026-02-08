@@ -1,19 +1,23 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowLeft, Loader2, DollarSign, Mail, Lock } from 'lucide-react'
 
-export default function LoginPage() {
+import { Suspense, useState } from 'react'
+
+function LoginForm() {
     const router = useRouter()
+    const searchParams = useSearchParams()
     const supabase = createClient()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
+    const [message, setMessage] = useState<string | null>(searchParams.get('message'))
 
     const [formData, setFormData] = useState({
         email: '',
@@ -140,6 +144,11 @@ export default function LoginPage() {
                                         <span className="mr-2">⚠️</span> {error}
                                     </div>
                                 )}
+                                {message && (
+                                    <div className="p-3 rounded-md bg-green-50 text-green-600 text-sm flex items-center">
+                                        <span className="mr-2">✅</span> {message}
+                                    </div>
+                                )}
 
                                 <Button className="w-full h-11 bg-blue-600 hover:bg-blue-700 font-medium text-base shadow-sm shadow-blue-600/20" type="submit" disabled={loading}>
                                     {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -167,5 +176,13 @@ export default function LoginPage() {
                 </div>
             </div>
         </div>
+    )
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <LoginForm />
+        </Suspense>
     )
 }

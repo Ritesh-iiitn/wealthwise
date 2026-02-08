@@ -66,8 +66,11 @@ export default function SignupPage() {
                     })
                 }
 
-                router.push('/dashboard')
-                router.refresh()
+                // Sign out immediately to force login flow
+                await supabase.auth.signOut()
+
+                // Redirect to login page instead of dashboard
+                router.push('/login?message=Account created successfully. Please log in.')
             } else {
                 setMessage('Account created! Please check your email to confirm.')
             }
