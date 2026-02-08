@@ -55,8 +55,8 @@ export default async function AccountsPage() {
     // Group accounts by Institution
     const groupedAccounts: Record<string, typeof accounts> = {};
     accounts?.forEach(acc => {
-        // Use a dummy group if ID is missing
-        const key = acc.institution_id || 'manual';
+        // Use a dummy group if ID is missing. Grouping by plaid_item_id works as each item is one institution connection.
+        const key = acc.plaid_item_id || 'manual';
         if (!groupedAccounts[key]) {
             groupedAccounts[key] = [];
         }

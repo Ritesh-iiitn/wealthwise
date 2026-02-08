@@ -44,7 +44,7 @@ export function AccountTypeDistributionChart({ data = [] }: AccountTypeDistribut
                                 ))}
                             </Pie>
                             <Tooltip
-                                formatter={(value: number) => `$${value.toLocaleString('en-US', { minimumFractionDigits: 2 })}`}
+                                formatter={(value: any) => `$${Number(value).toLocaleString('en-US', { minimumFractionDigits: 2 })}`}
                             />
                         </PieChart>
                     </ResponsiveContainer>

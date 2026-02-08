@@ -46,7 +46,7 @@ export function AssetLiabilityChart({ data = [] }: AssetLiabilityChartProps) {
                                 tickFormatter={(value) => `$${value}`}
                             />
                             <Tooltip
-                                formatter={(value: number) => `$${value.toLocaleString('en-US', { minimumFractionDigits: 2 })}`}
+                                formatter={(value: any) => `$${Number(value).toLocaleString('en-US', { minimumFractionDigits: 2 })}`}
                                 cursor={{ fill: 'transparent' }}
                             />
                             <Bar dataKey="assets" fill="#10b981" radius={[4, 4, 0, 0]} name="Assets" />

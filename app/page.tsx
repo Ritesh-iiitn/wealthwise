@@ -117,7 +117,7 @@ export default function LandingPage() {
               <p className="text-gray-500">Start for free, upgrade for power.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {/* Free Tier */}
               <div className="flex flex-col p-6 bg-white rounded-xl shadow-sm border">
                 <h3 className="text-xl font-bold">Starter</h3>
@@ -140,7 +140,7 @@ export default function LandingPage() {
                 <div className="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-sm">POPULAR</div>
                 <h3 className="text-xl font-bold">Pro</h3>
                 <div className="mt-4 mb-6">
-                  <span className="text-4xl font-bold">$9</span>
+                  <span className="text-4xl font-bold">$19.9</span>
                   <span className="text-gray-500">/month</span>
                 </div>
                 <ul className="space-y-3 mb-8 flex-1">
@@ -151,23 +151,6 @@ export default function LandingPage() {
                 </ul>
                 <Link href="/signup">
                   <Button className="w-full bg-green-600 hover:bg-green-700">Get Started</Button>
-                </Link>
-              </div>
-
-              {/* Enterprise Tier */}
-              <div className="flex flex-col p-6 bg-white rounded-xl shadow-sm border">
-                <h3 className="text-xl font-bold">Lifetime</h3>
-                <div className="mt-4 mb-6">
-                  <span className="text-4xl font-bold">$199</span>
-                  <span className="text-gray-500"> one-time</span>
-                </div>
-                <ul className="space-y-3 mb-8 flex-1">
-                  <li className="flex items-center"><CheckCircle2 className="mr-2 h-4 w-4 text-green-500" /> All Pro Features</li>
-                  <li className="flex items-center"><CheckCircle2 className="mr-2 h-4 w-4 text-green-500" /> Lifetime Updates</li>
-                  <li className="flex items-center"><CheckCircle2 className="mr-2 h-4 w-4 text-green-500" /> Early Access</li>
-                </ul>
-                <Link href="/signup">
-                  <Button className="w-full" variant="outline">Buy Lifetime</Button>
                 </Link>
               </div>
             </div>
